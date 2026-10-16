@@ -20,6 +20,18 @@ Sistema de gestión y monitoreo bibliotecario para la Biblioteca "Dr. Antonio de
 3. Crear la base de datos `biblioteca` en MySQL y ejecutar el script SQL.
 4. Ejecutar `GestionBiblioteca.java`.
 
+## Base de datos
+
+El archivo `sql/biblioteca.sql` contiene la estructura completa de la base de datos
+con datos de ejemplo. Para importarlo:
+
+1. Abrir phpMyAdmin.
+2. Crear la base de datos `biblioteca`.
+3. Clic en la pestaña "Importar".
+4. Seleccionar el archivo `sql/biblioteca.sql`.
+5. Clic en "Continuar".
+6. Ejecutar el programa `GestionBiblioteca.java`.
+
 ## Autor
 
 Agustín Haredes
