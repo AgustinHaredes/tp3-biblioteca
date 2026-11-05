@@ -23,48 +23,36 @@ public class GestionBiblioteca extends JFrame {
     // Panel de botones 
     JPanel panelBotones = new JPanel(new GridLayout(6, 2, 15, 15));
     panelBotones.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
-
-    JButton btnSocio = new JButton("Agregar Socio");
-    JButton btnLibro = new JButton("Agregar Libro");
-    JButton btnModSocio = new JButton("Modificar Socio");
-    JButton btnBajaSocio = new JButton("Dar de Baja Socio");
-    JButton btnListarSocios = new JButton("Listar Socios");
-    JButton btnListarLibros = new JButton("Listar Libros");
-    JButton btnPrestamo = new JButton("Realizar Préstamo");
-    JButton btnDevolucion = new JButton("Procesar Devolución");
-    JButton btnListarPrestamos = new JButton("Listar Préstamos");
-    JButton btnSolicitarCompra = new JButton("Solicitar Compra");
-    JButton btnListarSolicitudes = new JButton("Listar Solicitudes");
-    JButton btnSalir = new JButton("Salir");
-
-    // Acciones
-    btnSocio.addActionListener(e -> Ventanas.agregarSocio(biblioteca));
-    btnLibro.addActionListener(e -> Ventanas.agregarLibro(biblioteca));
-    btnModSocio.addActionListener(e -> Ventanas.modificarSocio(biblioteca));
-    btnBajaSocio.addActionListener(e -> Ventanas.darDeBajaSocio(biblioteca));
-    btnListarSocios.addActionListener(e -> Ventanas.listarSocios(biblioteca));
-    btnListarLibros.addActionListener(e -> Ventanas.listarLibros(biblioteca));
-    btnPrestamo.addActionListener(e -> Ventanas.realizarPrestamo(biblioteca));
-    btnDevolucion.addActionListener(e -> Ventanas.procesarDevolucion(biblioteca));
-    btnListarPrestamos.addActionListener(e -> Ventanas.listarPrestamosActivos(biblioteca));
-    btnSolicitarCompra.addActionListener(e -> Ventanas.solicitarCompra(biblioteca));
-    btnListarSolicitudes.addActionListener(e -> Ventanas.listarSolicitudes(biblioteca));
-
-    btnSalir.addActionListener(e -> System.exit(0));
-
-    panelBotones.add(btnSocio);
-    panelBotones.add(btnLibro);
-    panelBotones.add(btnModSocio);
-    panelBotones.add(btnBajaSocio);
-    panelBotones.add(btnListarSocios);
-    panelBotones.add(btnListarLibros);
-    panelBotones.add(btnPrestamo);
-    panelBotones.add(btnDevolucion);
-    panelBotones.add(btnListarPrestamos);
-    panelBotones.add(btnSolicitarCompra);
-    panelBotones.add(btnListarSolicitudes);
-    panelBotones.add(btnSalir);
-    panelBotones.add(btnSalir);
+    //usamos un array para los botones
+    String[] nombresBotones = {
+        "Agregar Socio", "Agregar Libro",
+        "Modificar Socio", "Dar de Baja Socio",
+        "Listar Socios", "Listar Libros",
+        "Realizar Préstamo", "Procesar Devolución",
+        "Listar Préstamos", "Solicitar Compra",
+        "Listar Solicitudes", "Salir"
+    }; 
+    //usamos el bucle for para generar los botones dinamicamente 
+    for (int i = 0; i < nombresBotones.length; i++) {
+        JButton boton = new JButton(nombresBotones[i]);
+        
+        // Asignamos la acción correspondiente según la posición en el arreglo
+        switch (i) {
+            case 0: boton.addActionListener(e -> Ventanas.agregarSocio(biblioteca)); break;
+            case 1: boton.addActionListener(e -> Ventanas.agregarLibro(biblioteca)); break;
+            case 2: boton.addActionListener(e -> Ventanas.modificarSocio(biblioteca)); break;
+            case 3: boton.addActionListener(e -> Ventanas.darDeBajaSocio(biblioteca)); break;
+            case 4: boton.addActionListener(e -> Ventanas.listarSocios(biblioteca)); break;
+            case 5: boton.addActionListener(e -> Ventanas.listarLibros(biblioteca)); break;
+            case 6: boton.addActionListener(e -> Ventanas.realizarPrestamo(biblioteca)); break;
+            case 7: boton.addActionListener(e -> Ventanas.procesarDevolucion(biblioteca)); break;
+            case 8: boton.addActionListener(e -> Ventanas.listarPrestamosActivos(biblioteca)); break;
+            case 9: boton.addActionListener(e -> Ventanas.solicitarCompra(biblioteca)); break;
+            case 10: boton.addActionListener(e -> Ventanas.listarSolicitudes(biblioteca)); break;
+            case 11: boton.addActionListener(e -> System.exit(0)); break;
+        }
+    panelBotones.add(boton);
+    }
 
     add(panelBotones, BorderLayout.CENTER);
 }
